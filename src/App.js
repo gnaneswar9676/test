@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar'; // Import your Navbar
+import Home from './components/Home';
+import Services from './components/Services';
+import SignIn from './components/login';
+import SignUp from './components/Signup';
+import Virtualtour from './components/Virtualtour';
+import gallery from './components/gallery';
+import SwipwerSlider from './components/SwiperSlider';
+import'./App.css';
+import UseDataPage from './components/UseDataPage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Navbar />
+     
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/usedatapage" element={<UseDataPage />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/Virtualtour" element={<Virtualtour />} />
+                <Route path="/gallery" element={<gallery />} />
+                <Route path="/SwiperSlider" element={<SwipwerSlider />} />
+                
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
